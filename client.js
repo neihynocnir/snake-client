@@ -1,6 +1,6 @@
 const net = require('net');
 
-const connect = function() {
+const connect = () => {
   const name = 'Name: RR';
   const up = 'Move: up';
   const right = 'Move: right';
@@ -14,18 +14,21 @@ const connect = function() {
   });
 
   conn.setEncoding('utf8'); 
+  
   conn.write(`${name}`);
 
   setInterval(() => { conn.write(`${up}`)}, 5000);
   setInterval(() => { conn.write(`${right}`)}, 1000);
   setInterval(() => { conn.write(`${down}`)}, 1000);
   setInterval(() => { conn.write(`${left}`)}, 1000);
-
+  
   conn.on('data', (data) => {
     console.log('Received: ' + data);
   });
 
-
+  conn.on('connect', (data) => {
+    console.log("You are connected :)");
+  });
   return conn;
 }
 
