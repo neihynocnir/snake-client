@@ -12,6 +12,12 @@ const setupInput = (conn) => {
 };
 
 
+// stdin.setEncoding('utf8');
+// stdin.on('data', (input) => {
+//     console.log("I wrote this:", input);
+//     connection.write(`${name}: ${input}`);
+// })
+
 const handleUserInput = (input) => { 
     if (input ===  '\u0003'){
       process.exit();
@@ -24,6 +30,7 @@ const handleUserInput = (input) => {
     } else if( input === 'd'){
       connection.write("Move: right");
     }
+    connection.write(`Say: ${input}`);
 };
 
 module.exports = setupInput;

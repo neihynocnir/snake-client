@@ -17,10 +17,10 @@ const connect = () => {
   
   conn.write(`${name}`);
 
-  setInterval(() => { conn.write(`${up}`)}, 5000);
-  setInterval(() => { conn.write(`${right}`)}, 1000);
-  setInterval(() => { conn.write(`${down}`)}, 1000);
-  setInterval(() => { conn.write(`${left}`)}, 1000);
+  setInterval(() => { conn.write(`${up}`)}, 500);
+  setInterval(() => { conn.write(`${right}`)}, 500);
+  setInterval(() => { conn.write(`${down}`)}, 500);
+  setInterval(() => { conn.write(`${left}`)}, 500);
   
   conn.on('data', (data) => {
     console.log('Received: ' + data);
