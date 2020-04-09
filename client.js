@@ -1,4 +1,5 @@
 const net = require('net');
+const { IP, PORT } = require('./constants');
 
 const connect = () => {
   const name = 'Name: RR';
@@ -6,11 +7,10 @@ const connect = () => {
   const right = 'Move: right';
   const down = 'Move: down';
   const left = 'Move: left';
-
   
   const conn = net.createConnection({ 
-    host: '135.23.222.148', 
-    port: 50541
+    host: IP, 
+    port: PORT
   });
 
   conn.setEncoding('utf8'); 
@@ -26,7 +26,7 @@ const connect = () => {
     console.log('Received: ' + data);
   });
 
-  conn.on('connect', (data) => {
+  conn.on('connect', () => {
     console.log("You are connected :)");
   });
   return conn;

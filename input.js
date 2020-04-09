@@ -11,13 +11,6 @@ const setupInput = (conn) => {
   return stdin;
 };
 
-
-// stdin.setEncoding('utf8');
-// stdin.on('data', (input) => {
-//     console.log("I wrote this:", input);
-//     connection.write(`${name}: ${input}`);
-// })
-
 const handleUserInput = (input) => { 
     if (input ===  '\u0003'){
       process.exit();
